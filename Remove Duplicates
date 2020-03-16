@@ -1,0 +1,22 @@
+//Take as input S, a string. Write a function that removes all consecutive duplicates. Print the value returned.
+
+import java.util.*;
+public class Main {
+
+	public static String removeDuplicates(String S,int idx,String str){
+	    if (idx==S.length()-1){
+	        return str+S.charAt(idx);
+	    }
+	    if (S.charAt(idx)==S.charAt(idx+1)){
+	        return removeDuplicates(S,idx+1,str);
+	    }
+	    return removeDuplicates(S,idx+1,str+S.charAt(idx));
+	}
+
+    public static void main(String args[]) {
+        // Your Code Here
+		Scanner sc = new Scanner(System.in);
+		String S = sc.nextLine();
+		System.out.println(removeDuplicates(S,0,""));
+    }
+}
